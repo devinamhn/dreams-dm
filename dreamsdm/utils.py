@@ -12,7 +12,9 @@ class Path_Handler:
             "project", Path(__file__).resolve().parent.parent
         )  # i.e. this repo
 
-        path_dict["data"] = kwargs.get("data", path_dict["project"] / "datasets")
+        # separate data paths / make local copies into a single data folder
+        # path_dict["data"] = kwargs.get("data", path_dict["project"] / "data")
+        
         # path_dict["models"] = kwargs.get("inference", path_dict["project"] / "models")
         # path_dict["eval"] = kwargs.get("eval", path_dict["project"] / "eval")
 
@@ -24,9 +26,9 @@ class Path_Handler:
     def fill_dict(self):
         """Create dictionary of required paths"""
 
-        self.path_dict["rgz"] = self.path_dict["data"] / "rgz"
-        self.path_dict["mb"] = self.path_dict["data"] / "mb"
-        self.path_dict["mightee"] = self.path_dict["data"] / "MIGHTEE"
+        # self.path_dict["rgz"] = self.path_dict["data"] / "rgz"
+        # self.path_dict["mb"] = self.path_dict["data"] / "mb"
+        # self.path_dict["mightee"] = self.path_dict["data"] / "MIGHTEE"
 
     def create_paths(self):
         """Create missing directories"""
