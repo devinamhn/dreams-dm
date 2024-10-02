@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from torch.utils.data import Dataset
 from torchvision.io import read_image 
+from pathlib import Path
 
 class WDMGalaxiesDataset(Dataset):
     """
@@ -20,8 +21,6 @@ class WDMGalaxiesDataset(Dataset):
 
     def __getitem__(self, idx):
         img_path = os.path.join(self.img_dir, self.labels.iloc[idx,0])
-        #would be better to have imgs in jpeg/png, can use read_image directly
-
         image = read_image(img_path)
         label = self.labels.iloc[idx, 1]
 
