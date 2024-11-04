@@ -1,0 +1,40 @@
+seed: 42
+name: 'CombinedMap All'
+dataset:
+  type: 'CombiMaps'
+  path: '/mnt/ceph/users/dmohan/dreams/data/combinedmaps'
+  mean: (0.9676, 0.9738)
+  std: (0.0730, 0.0493)
+  train_n_files: 700
+  train_n_galaxies: 5
+  val_n_files: 100 #100
+  val_n_galaxies: 5 #100
+
+training:
+  epochs: 200
+  batch_size: 32
+  num_workers: 64
+  prefetch_factor: 4
+  drop_last: True
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  optimizer: 'adam'
+  loss_function: 'mse'
+  patience: 2
+  factor: 0.9
+
+
+
+model:
+  input_shape: [2, 512, 512]
+  output_size: 4
+  architecture: 'ResNet18'
+  # layers: add dropout later
+    # - type: Conv2D
+    #   filters: 32
+    #   kernel_size: [3, 3]
+    #   activation: relu
+
+
+results:
+  path: '/mnt/ceph/users/dmohan/dreams/results/combinedmaps/exp4/'
